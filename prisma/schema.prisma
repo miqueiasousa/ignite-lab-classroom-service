@@ -12,3 +12,11 @@ model Student {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
+
+model Course {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
