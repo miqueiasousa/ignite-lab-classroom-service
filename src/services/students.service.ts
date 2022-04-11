@@ -4,14 +4,14 @@ import { PrismaService } from '../database/prisma/prisma.service';
 
 @Injectable()
 export class StudentsService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
   listAll() {
-    return this.prismaService.student.findMany();
+    return this.prisma.student.findMany();
   }
 
   findOne(id: string) {
-    return this.prismaService.student.findUnique({
+    return this.prisma.student.findUnique({
       where: {
         id,
       },

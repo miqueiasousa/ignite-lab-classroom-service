@@ -4,10 +4,10 @@ import { PrismaService } from '../database/prisma/prisma.service';
 
 @Injectable()
 export class EnrollmentsService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
   listAll() {
-    return this.prismaService.enrollment.findMany({
+    return this.prisma.enrollment.findMany({
       where: {
         canceledAt: null,
       },
