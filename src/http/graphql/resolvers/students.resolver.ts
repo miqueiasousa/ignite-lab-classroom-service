@@ -8,7 +8,7 @@ import { Student } from '../models/student';
 
 @Resolver()
 export class StudentsResolver {
-  constructor(private readonly studentsService: StudentsService) {}
+  constructor(private studentsService: StudentsService) {}
 
   @Query(() => [Student])
   @UseGuards(AuthorizationGuard)
