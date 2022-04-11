@@ -15,6 +15,13 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Student {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  enrollments: [Enrollment!]!
+}
+
 type Enrollment {
   id: ID!
   createdAt: DateTime!
@@ -22,13 +29,6 @@ type Enrollment {
   canceledAt: DateTime
   student: Student!
   course: Course!
-}
-
-type Student {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  enrollments: [Enrollment!]!
 }
 
 type Query {
