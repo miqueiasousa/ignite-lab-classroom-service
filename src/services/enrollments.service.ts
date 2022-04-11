@@ -3,17 +3,16 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma/prisma.service';
 
 @Injectable()
-export class CoursesService {
+export class EnrollmentsService {
   constructor(private prismaService: PrismaService) {}
 
   listAll() {
-    return this.prismaService.course.findMany();
-  }
-
-  findOne(id: string) {
-    return this.prismaService.course.findUnique({
+    return this.prismaService.enrollment.findMany({
       where: {
-        id,
+        canceledAt: null,
+      },
+      orderBy: {
+        createdAt: 'desc',
       },
     });
   }

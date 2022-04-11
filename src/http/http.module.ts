@@ -8,9 +8,11 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { DatabaseModule } from '../database/database.module';
 import { StudentsService } from '../services/students.service';
 import { CoursesService } from '../services/courses.service';
+import { EnrollmentsService } from '../services/enrollments.service';
 
 import { StudentsResolver } from './graphql/resolvers/students.resolver';
 import { CoursesResolver } from './graphql/resolvers/courses.resolver';
+import { EnrollmentsResolver } from './graphql/resolvers/enrollments.resolver';
 
 @Module({
   imports: [
@@ -24,8 +26,10 @@ import { CoursesResolver } from './graphql/resolvers/courses.resolver';
   providers: [
     StudentsService,
     CoursesService,
+    EnrollmentsService,
     StudentsResolver,
     CoursesResolver,
+    EnrollmentsResolver,
   ],
 })
 export class HttpModule {}
