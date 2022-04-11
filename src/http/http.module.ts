@@ -7,8 +7,10 @@ import { ApolloDriver } from '@nestjs/apollo';
 
 import { DatabaseModule } from '../database/database.module';
 import { StudentsService } from '../services/students.service';
+import { CoursesService } from '../services/courses.service';
 
 import { StudentsResolver } from './graphql/resolvers/students.resolver';
+import { CoursesResolver } from './graphql/resolvers/courses.resolver';
 
 @Module({
   imports: [
@@ -19,6 +21,11 @@ import { StudentsResolver } from './graphql/resolvers/students.resolver';
       autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
     }),
   ],
-  providers: [StudentsService, StudentsResolver],
+  providers: [
+    StudentsService,
+    CoursesService,
+    StudentsResolver,
+    CoursesResolver,
+  ],
 })
 export class HttpModule {}
