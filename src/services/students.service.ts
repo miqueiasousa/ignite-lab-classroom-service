@@ -17,4 +17,18 @@ export class StudentsService {
       },
     });
   }
+
+  async findByUserId(userId: string) {
+    const student = this.prisma.student.findUnique({
+      where: {
+        userId,
+      },
+    });
+
+    if (!student) {
+      throw new Error('Student not found!');
+    }
+
+    return student;
+  }
 }
