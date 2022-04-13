@@ -35,6 +35,7 @@ type Query {
   me: Student!
   students: [Student!]!
   courses: [Course!]!
+  course(id: String!): Course!
   enrollments: [Enrollment!]!
 }
 

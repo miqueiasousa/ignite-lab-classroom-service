@@ -41,4 +41,17 @@ export class CoursesService {
       },
     });
   }
+
+  findByStudentId(courseId: string, studentId: string) {
+    return this.prisma.course.findFirst({
+      where: {
+        id: courseId,
+        Enrollments: {
+          some: {
+            studentId: studentId,
+          },
+        },
+      },
+    });
+  }
 }
